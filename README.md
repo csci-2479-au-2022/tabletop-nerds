@@ -28,6 +28,3 @@ docker run --rm \
 - You can [configure an alias](https://laravel.com/docs/9.x/sail#configuring-a-shell-alias) in your Ubuntu terminal so you can type `sail` instead of `./vendor/bin/sail` every time you want to run a sail command
 - To start your application containers, simply run `sail up -d`
 - To stop them, run `sail down`
-
-## Individual lab documentation:
-1. [Lab 2](./docs/individual-lab-2.md)
