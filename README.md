@@ -23,6 +23,7 @@ docker run --rm \
    - the `-d` is to run in detached mode, so you can still use the same shell
 7. create app key: `./vendor/bin/sail artisan key:generate`
 8. run database migrations: `./vendor/bin/sail artisan migrate`
+9. run the front-end build tools: `sail npm install && sail npm run build`
 
 ## Using sail
 - You can [configure an alias](https://laravel.com/docs/9.x/sail#configuring-a-shell-alias) in your Ubuntu terminal so you can type `sail` instead of `./vendor/bin/sail` every time you want to run a sail command
