@@ -1,13 +1,13 @@
-# Individual Labs 2, 3, and 4
+# Tabletop Nerds
 
-This repository is where you will work on labs 2, 3, and 4.
+This repository is where you will work on the group project milestones to create the best boardgame review site ever known.
 
 ## First-time local setup
 1. open an Ubuntu terminal
    1. make sure you're in your home directory, where you've hopefully already created a projects folder: `cd ~/projects`
    2. make sure you have docker desktop running
-2. clone this repo: `git clone git@github.com:csci-2479-au-2022/individual-labs-{your_name}.git` (replace {your_name} with your name!)
-3. go into the project: `cd individual-labs-{your_name}`
+2. clone this repo: `git clone git@github.com:csci-2479-au-2022/tabletop-nerds.git`
+3. go into the project: `cd tabletop-nerds`
 4. copy the `.env.example` file to `.env`
 5. run the following docker command to install our Sail dependencies:
 ```
