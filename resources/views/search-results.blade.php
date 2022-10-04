@@ -7,6 +7,6 @@
     <title>Search Results</title>
 </head>
 <body>
-    
+    <h1>Here are the search results!</h1>
 </body>
 </html>
