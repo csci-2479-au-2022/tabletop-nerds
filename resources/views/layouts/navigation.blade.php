@@ -5,7 +5,7 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
+                    <a href="{{ route('account-profile') }}">
                         <x-application-logo class="block h-10 w-auto fill-current text-gray-600" />
                     </a>
                 </div>
@@ -16,8 +16,8 @@
                 </form>
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                    <x-nav-link :href="route('account-profile')" :active="request()->routeIs('account-profile')">
+                        {{ __('Home') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -41,6 +41,11 @@
                     </x-slot>
 
                     <x-slot name="content">
+                        <!-- Dropdown link to Account Profile -->
+                        <x-nav-link :href="route('account-profile')" :active="request()->routeIs('account-profile')">
+                        {{ __('Account Profile') }}
+                        </x-nav-link>
+                        
                         <!-- Authentication -->
                         @guest
                             <x-dropdown-link :href="route('login')">
@@ -84,8 +89,8 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
+            <x-responsive-nav-link :href="route('account-profile')" :active="request()->routeIs('account-profile')">
+                {{ __('Home') }}
             </x-responsive-nav-link>
         </div>
         <!--Search textbox -->
@@ -106,6 +111,11 @@
             </div>
 
             <div class="mt-3 space-y-1">
+                <!-- Dropdown link to Account Profile -->
+                <x-nav-link :href="route('account-profile')" :active="request()->routeIs('account-profile')">
+                {{ __('Account Profile') }}
+                </x-nav-link>
+
                 <!-- Authentication -->
                 @guest
                     <x-responsive-nav-link :href="route('login')">

@@ -20,9 +20,9 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::get('/profile', function () {
+    return view('account-profile');
+})->middleware(['auth'])->name('account-profile');
 
 Route::get('/games', [GameController::class, 'gameList']) ->name('game-list');
 
