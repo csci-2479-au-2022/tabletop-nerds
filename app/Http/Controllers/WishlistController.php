@@ -16,9 +16,9 @@ class WishlistController extends Controller
     {
         return 
         [
-            ['title'=>'Age of Empires 3'],
-            ['title'=>'Simcopter'],
-            ['title'=>'Darkest Dungeon'],
+            ['title'=>'Catan'],
+            ['title'=>'Risk'],
+            ['title'=>'Ticket to Ride'],
         ];
     }
 }

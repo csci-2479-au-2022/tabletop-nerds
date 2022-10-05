@@ -48,7 +48,7 @@
                 </x-dropdown>
             </div>
 
-            <!-- Wishlist added to dropdown.. I think??-->
+            <!-- Wishlist added to dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
@@ -64,15 +64,9 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        <!-- Authentication -->
-                        <form method="POST" action="{{ route('wishlist') }}">
-                            @csrf
-
-                            <x-dropdown-link :href="route('wishlist')"
-                                    onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                                {{ __('Your Wishlist') }}
-                            </x-dropdown-link>
+                        <x-dropdown-link :href="route('wishlist')">
+                            {{ __('Your Wishlist') }}
+                        </x-dropdown-link>
                         </form>
                     </x-slot>
                 </x-dropdown>
@@ -118,18 +112,11 @@
                 </form>
             </div>
 
-            <!-- Adding Wishlist option to dropdown menu - I think??-->
+            <!-- Adding Wishlist option to dropdown menu -->
             <div class="mt-3 space-y-1">
-                <!-- Authentication -->
-                <form method="POST" action="{{ route('wishlist') }}">
-                    @csrf
-
-                    <x-responsive-nav-link :href="route('wishlist')"
-                            onclick="event.preventDefault();
-                                        this.closest('form').submit();">
-                        {{ __('Your Wishlist') }}
-                    </x-responsive-nav-link>
-                </form>
+                <x-responsive-nav-link :href="route('wish-list')">
+                    {{ __('Your Wishlist') }}
+                </x-responsive-nav-link>
             </div>
 
         </div>
