@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\WishlistController;
 
 /*
@@ -23,5 +24,10 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+
+
+
+
 
 Route::get('/wishlist', [WishlistController::class, 'wishlist']) ->name ('wish-list');
