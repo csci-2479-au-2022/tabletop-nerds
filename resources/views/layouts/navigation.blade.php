@@ -68,7 +68,7 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        <x-dropdown-link :href="route('wishlist')">
+                        <x-dropdown-link :href="route('wishlist')" :active="request()->routeIs('wish-list')">
                             {{ __('Your Wishlist') }}
                         </x-dropdown-link>
                         </form>
@@ -123,7 +123,7 @@
 
             <!-- Adding Wishlist option to dropdown menu -->
             <div class="mt-3 space-y-1">
-                <x-responsive-nav-link :href="route('wish-list')">
+                <x-responsive-nav-link :href="route('wish-list')" :active="request()->routeIs('wish-list')">
                     {{ __('Your Wishlist') }}
                 </x-responsive-nav-link>
             </div>
