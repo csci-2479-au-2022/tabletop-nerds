@@ -26,8 +26,4 @@ Route::get('/dashboard', function () {
 require __DIR__.'/auth.php';
 
 
-
-
-
-
 Route::get('/wishlist', [WishlistController::class, 'wishlist']) ->name ('wish-list');
