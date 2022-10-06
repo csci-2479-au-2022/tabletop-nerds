@@ -12,5 +12,10 @@
     @foreach($games as $game)
     <p>{{$game['title']}}</p>
     @endforeach 
+
+    <h3>Game Info</h3>
+    @foreach($info as $info)
+    <p>{{$info['description']}}</p>
+    @endforeach
 </body>
 </html>

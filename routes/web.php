@@ -24,5 +24,6 @@ Route::get('/dashboard', function () {
 
 Route::get('/games', [GameController::class, 'gameList']) ->name('game-list');
 
+Route::get('/game/{id}', [GameController::class, 'infoList' ]) ->name('info-list');
 
 require __DIR__.'/auth.php';
