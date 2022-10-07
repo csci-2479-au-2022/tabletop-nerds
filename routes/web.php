@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\SearchController;
+
+use App\Http\Controllers\WishlistController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('search-results', [SearchController::class, 'displayResults']);
-
 require __DIR__.'/auth.php';
+
+
+Route::get('/wishlist', [WishlistController::class, 'wishlist']) ->name ('wish-list');

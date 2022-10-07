@@ -48,6 +48,10 @@
                                 {{ __('Log Out') }}
                             </x-dropdown-link>
                         </form>
+                        <!-- Wishlist added to dropdown -->
+                        <x-dropdown-link :href="route('wish-list')" :active="request()->routeIs('wish-list')">
+                            {{ __('Your Wishlist') }}
+                        </x-dropdown-link>
                     </x-slot>
                 </x-dropdown>
             </div>
@@ -95,6 +99,10 @@
                         {{ __('Log Out') }}
                     </x-responsive-nav-link>
                 </form>
+                <!-- Adding Wishlist option to dropdown menu -->
+                <x-responsive-nav-link :href="route('wish-list')" :active="request()->routeIs('wish-list')">
+                    {{ __('Your Wishlist') }}
+                </x-responsive-nav-link>
             </div>
         </div>
     </div>
