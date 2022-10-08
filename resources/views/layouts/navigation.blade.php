@@ -29,6 +29,8 @@
                         <button class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
                             @auth
                                 <div>{{ Auth::user()->name }}</div>
+                            @else
+                                <div>Guest</div>
                             @endauth
                             <div class="ml-1">
                                 <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -42,8 +44,6 @@
                         <!-- Authentication -->
                         @guest
                             <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
-
-
                             <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
                         @endguest
                         @auth
@@ -56,6 +56,10 @@
                                     {{ __('Log Out') }}
                                 </x-dropdown-link>
                             </form>
+                            <!-- Wishlist added to dropdown -->
+                            <x-dropdown-link :href="route('wish-list')" :active="request()->routeIs('wish-list')">
+                                {{ __('Your Wishlist') }}
+                            </x-dropdown-link>
                         @endauth
                     </x-slot>
                 </x-dropdown>
@@ -92,6 +96,8 @@
                 @auth
                     <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
                     <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
+                @else
+                <div class="font-medium text-sm text-gray-500">Guest</div>
                 @endauth
             </div>
 
@@ -99,8 +105,6 @@
                 <!-- Authentication -->
                 @guest
                     <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
-
-
                     <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
                 @endguest
                 @auth
@@ -113,6 +117,10 @@
                             {{ __('Log Out') }}
                         </x-responsive-nav-link>
                     </form>
+                     <!-- Adding Wishlist option to dropdown menu -->
+                    <x-responsive-nav-link :href="route('wish-list')" :active="request()->routeIs('wish-list')">
+                        {{ __('Your Wishlist') }}
+                    </x-responsive-nav-link>
                 @endauth
             </div>
         </div>
