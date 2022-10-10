@@ -9,13 +9,20 @@
 </head>
 <body>
     <h1>Game List</h1><h2>{{$greeting}}</h2>
-    @foreach($games as $game)
-    <p>{{$game['title']}}</p>
-    @endforeach 
+    <table>
+        <thead>
+            <th>Title</th>
+        </thead>
+        <tbody>
+        @foreach($games as $game)
+        <tr>
+            <td>
+                <a href="{{route('gamelist', $game->id)}}">{{$game->title]}}</a>
+            </td>
+        </tr>
+        @endforeach
+        </tbody>
+    </table>
 
-    <h3>Game Info</h3>
-    @foreach($info as $info)
-    <p>{{$info['description']}}</p>
-    @endforeach
 </body>
 </html>
