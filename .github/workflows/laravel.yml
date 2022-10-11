@@ -32,8 +32,8 @@ jobs:
       with:
         node-version: 16
         cache: 'npm'
-    - name: npm install  
-      run: npm ci
+    - name: npm install and build JS
+      run: npm ci && npm run build
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       env:
         DB_CONNECTION: sqlite
