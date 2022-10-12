@@ -18,7 +18,7 @@ use App\Http\Controllers\WishlistController;
 
 Route::get('/', function () {
     return view('home');
-});
+})->name('home');
 
 Route::get('/profile', function () {
     return view('account-profile');
