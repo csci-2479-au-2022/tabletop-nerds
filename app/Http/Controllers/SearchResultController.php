@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Services\GameService;
 
-class SearchController extends Controller
+class SearchResultController extends Controller
 {
     public function displayResults() {
         return view('search-results');
