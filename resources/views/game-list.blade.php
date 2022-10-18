@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Game List</h1><h2>{{$greeting}}</h2>
+    <h1>Game List</h1>
     <table>
         <thead>
             <th>Title</th>
@@ -17,7 +17,7 @@
         @foreach($games as $game)
         <tr>
             <td>
-                <a href="{{route('gamelist', $game->id)}}">{{$game->title]}}</a>
+                <a href="{{route('game-details', $game->id)}}">{{$game->title}}</a>
             </td>
         </tr>
         @endforeach
