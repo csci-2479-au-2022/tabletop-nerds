@@ -9,20 +9,13 @@
 </head>
 <body>
     <h1>Game Details</h1>
-    <table>
-        <thead>
-            <th>Details</th>
-        </thead>
-        <tbody>
-        @foreach($games as $game)
-        <tr>
-            <td>
-                <a href="{{route('getGameById', $game->id)}}">{{$game->title]}}</a>
-            </td>
-        </tr>
-        @endforeach
-        </tbody>
-    </table>
-
+    <nav>
+        <p><a href="{{route('game-list')}}">Back to Games</a></p>
+    <nav>
+        <h2>{{$game->title}}</h2>
+        <p>{{$game->id}}</p>
+        <p>{{$game->title}}</p>
 </body>
 </html>
+
+{{-- href="{{route('getGameById', $game->id)}}">{{$game->title]}} --}}
