@@ -30,7 +30,7 @@ class GameController extends Controller
 
         foreach ($games as $game) {
             if($game->id ===$id){
-                return view ('game-details', [
+                return view ('game-info', [
                     'game'=>$game,
                 ]);
             }
