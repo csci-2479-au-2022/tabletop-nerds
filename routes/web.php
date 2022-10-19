@@ -27,9 +27,7 @@ Route::get('/profile', function () {
 Route::get('/games', [GameController::class, 'gameList']) ->name('game-list');
 
 
-Route::get('/games', [GameController::class, 'gameList']) ->name('game-list');
-
-Route::get('/game/{id}', [GameController::class, 'getGameById' ]) ->name('game-details');
+Route::get('/game/{id?}', [GameController::class, 'getGameById' ]) ->name('game-info');
 
 require __DIR__.'/auth.php';
 

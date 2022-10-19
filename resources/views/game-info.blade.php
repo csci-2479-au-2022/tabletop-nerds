@@ -8,7 +8,7 @@
     <title>Game Details</title>
 </head>
 <body>
-    <h1>Game Details</h1>
+    <h1>Game Information</h1>
     <nav>
         <p><a href="{{route('game-list')}}">Back to Games</a></p>
     <nav>
@@ -17,5 +17,3 @@
         <p>{{$game->title}}</p>
 </body>
 </html>
-
-{{-- href="{{route('getGameById', $game->id)}}">{{$game->title]}} --}}
