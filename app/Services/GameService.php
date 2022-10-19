@@ -2,29 +2,21 @@
 
 namespace App\Services;
 
-use App\Models\Wishlist;
 
-function getGamesById(int $id): Wishlist {
-    $games = $this->getGames();
-
-    foreach ($games as $game) {
-        if ($game->id === $id) {
-            return $game;
-        }
-    }
-}
-
-function getGames ($orderBy, $direction, $limit) {
+function getGamesById (int $id)
+{
 
 }
 
-function searchGamesByTitle(string $title) {
-$games = $this->getGames();
+function getGames ($orderBy, $direction, $limit)
+{
 
-foreach ($games as $game) {
-    if (strtolower($game->title) === strtolower($title)) {
-        $foundTitle = $title;
-        break;
-    }
 }
+
+function searchGamesByTitle (string $title)
+{
+
 }
+
+
+
