@@ -2,16 +2,14 @@
 
 namespace App\Services;
 
+use App\Http\Controllers\AccountController;
 
 
-class AccountService {
-
+class AccountService
+{
     public function getWishlistByUserId($id) {
-        //more code goes here
+        $ac = new AccountController;
+        return $ac->wishlist();
     }
-
-
-
-
 
 }

@@ -5,16 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Wishlist;
 
-class WishlistController extends Controller
+class AccountController extends Controller
 {
-    public function wishlist() 
+    public function wishlist()
     {
         return view('wishlist', ['games' => self::getWishlist()]);
     }
 
-    private function getWishlist() 
+    private function getWishlist()
     {
-        return 
+        return
         [
             ['title'=>'Catan'],
             ['title'=>'Risk'],
