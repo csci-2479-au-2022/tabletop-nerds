@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->char('publisherCode', 3);
-            $table->timestamps(); // Do we need timestamps?
+            $table->timestamps();
         });
     }
 
