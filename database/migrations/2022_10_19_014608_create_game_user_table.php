@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('game_user', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('game_id');
-            $table->foreignId('user_id');
+            $table->foreignId('game_id')->constrained();
+            $table->foreignId('user_id')->constrained();
             $table->decimal('game_rating', 2, 1);
             $table->timestamps();
         });

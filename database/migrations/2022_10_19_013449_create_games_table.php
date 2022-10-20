@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('title');
             $table->decimal('complexity_rating', 3, 2);
             $table->year('release_year');
-            $table->foreignId('publisher_id');
+            $table->foreignId('publisher_id')->constrained();
             $table->integer('playing_time_minutes')->unsigned();
             $table->integer('min_number_players')->unsigned();
             $table->integer('max_number_players')->unsigned();
