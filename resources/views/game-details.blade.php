@@ -17,7 +17,7 @@
         @foreach($games as $game)
         <tr>
             <td>
-                <a href="{{route('getGameById', $game->id)}}">{{$game->title]}}</a>
+                <a href="{{route('getGameById', $game->id)}}">{{$game->title}}</a>
             </td>
         </tr>
         @endforeach

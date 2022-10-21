@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use App\Models\Game;
 
 class GameController extends Controller
 {
@@ -24,14 +25,14 @@ class GameController extends Controller
         ];
     }
 
-    public function getGameById(int $id): Game
+    public function getGameById(int $id)
     {
         $games = $this->getGames();
 
         foreach ($games as $game) {
             if($game->id ===$id){
-                return view ('game-details', [
-                    'game'=>$game(),
+                return view ('game-info', [
+                    'game'=>$game,
                 ]);
 
             }

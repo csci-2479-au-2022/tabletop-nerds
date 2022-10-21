@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GameController;
 
+use App\Http\Controllers\WishlistController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,15 +17,23 @@ use App\Http\Controllers\GameController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('home');
+})->name('home');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::get('/profile', function () {
+    return view('account-profile');
+})->middleware(['auth'])->name('account-profile');
+
+Route::get('/games', [GameController::class, 'gameList']) ->name('game-list');
+
+
+Route::get('/game/{id?}', [GameController::class, 'getGameById' ]) ->name('game-info');
 
 Route::get('/games', [GameController::class, 'gameList']) ->name('game-list');
 
 Route::get('/game/{id}', [GameController::class, 'getGamesById' ]) ->name('game-details');
 
 require __DIR__.'/auth.php';
+
+
+Route::get('/wishlist', [WishlistController::class, 'wishlist']) ->name ('wish-list');
