@@ -30,4 +30,4 @@ Route::get('/games', [GameController::class, 'gameList']) ->name('game-list');
 require __DIR__.'/auth.php';
 
 
-Route::get('/wishlist', [AccountController::class, 'wishlist']) ->name ('wish-list');
+Route::get('/wishlist', [AccountController::class, 'show']) ->name ('wish-list');

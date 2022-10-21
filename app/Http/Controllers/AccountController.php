@@ -4,21 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Wishlist;
+use App\Services\AccountService;
+use Symfony\Component\Translation\Exception\NotFoundResourceException;
 
 class AccountController extends Controller
 {
-    public function wishlist()
-    {
-        return view('wishlist', ['games' => self::getWishlist()]);
+    public function __construct(private AccountService $accountService) {
+
     }
 
-    private function getWishlist()
-    {
-        return
-        [
-            ['title'=>'Catan'],
-            ['title'=>'Risk'],
-            ['title'=>'Ticket to Ride'],
-        ];
+    public function show(?int $id=null){
+
+        return view('wishlist', ['wishlist'=>$this->accountService->getWishlistByUserId(1)]);
+
+
     }
+
 }
