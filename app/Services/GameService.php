@@ -1,28 +1,38 @@
 <?php
 
 namespace App\Services;
-use App\Models\Wishlist;
 
 class GameService {
-    function getGamesById (int $id): Wishlist
+    public function __construct( private GameService $gameService)
     {
-        $games = $this->getGames();
+    }
+
+    function getGamesById (?int $id = null)
+    {
+        $games = $this->gameService->getGames();
 
         foreach ($games as $game) {
             if ($game->id === $id) {
                 return $game;
             }
+            return view('games', ['games'=>$this->gameService->getGamesById($id)]);
         }
+
     }
 
     function getGames(): array
     {
-        $orderBy = '';
-        $direction = '';
-        $limit = 666;
-
-        return [
-        ];
+        $orderBy;
+        $direction;
+        $limit;
+        return view('game-list', [
+            'games'=>$this->gameService->getGames(),
+            [
+                ['title'=>'Monopoly'],
+                ['title'=>'Risk'],
+                ['title'=>'D&D'],
+            ]
+        ]);
     }
 
     function searchGamesByTitle (string $searchTitle)
@@ -39,8 +49,11 @@ class GameService {
              if ($titleName === null) {
                 echo 'error';
              }
-        }
+             return view('game-info', ['game'=>$this->gameService->searchGamesByTitle()]);
+            }
+        return view('games', ['games'->$this->gameService->getGames()]);
     }
+
 }
 
 
