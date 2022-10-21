@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class GameController extends Controller
 {
@@ -32,8 +33,10 @@ class GameController extends Controller
                 return view ('game-details', [
                     'game'=>$game(),
                 ]);
+
             }
         }
+        throw new NotFoundHttpException();
     }
 
 }
