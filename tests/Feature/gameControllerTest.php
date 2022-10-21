@@ -57,7 +57,7 @@ class gameControllerTest extends TestCase{
 
     public function test_get_games_by_id_returns_404()
     {
-        $response = $this->get('/game/{id}');
+        $response = $this->get('/game/4');
         // $response->assertViewHas('/game/{id}', $game);
         $response->assertStatus(404);
     }
