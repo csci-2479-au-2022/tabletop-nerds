@@ -1,38 +1,34 @@
 <?php
 
 namespace App\Services;
+use App\Models\Game;
 
 class GameService {
-    public function __construct( private GameService $gameService)
-    {
-    }
 
-    function getGamesById (?int $id = null)
+    function getGamesById (int $id)
     {
-        $games = $this->gameService->getGames();
+        $games = $this->getGames();
 
         foreach ($games as $game) {
             if ($game->id === $id) {
                 return $game;
             }
-            return view('games', ['games'=>$this->gameService->getGamesById($id)]);
         }
-
     }
 
-    function getGames(): array
+    function getGames()
     {
         $orderBy;
         $direction;
         $limit;
-        return view('game-list', [
-            'games'=>$this->gameService->getGames(),
+
+        return
             [
-                ['title'=>'Monopoly'],
-                ['title'=>'Risk'],
-                ['title'=>'D&D'],
-            ]
-        ]);
+                new Game (1, 'Monopoly', 5, 12),
+                new Game (2, 'Risk', 5, 12),
+                new Game (3, 'DND', 5, 12),
+            ];
+        }
     }
 
     function searchGamesByTitle (string $searchTitle)
@@ -53,8 +49,3 @@ class GameService {
             }
         return view('games', ['games'->$this->gameService->getGames()]);
     }
-
-}
-
-
-

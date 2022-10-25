@@ -16,4 +16,8 @@ class GameController extends Controller
             'games'=>$this->gameService->getGames()
         ]);
     }
+
+    public function getGameById(?int $id = null) {
+            return view ('game-info', [ 'game'=>$this->gameService->getGamesById($id)]);
+    }
 }
