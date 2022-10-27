@@ -16,8 +16,8 @@
                 </form>
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
-                        {{ __('Home') }}
+                    <x-nav-link :href="route('game-list')" :active="request()->routeIs('game-list')">
+                        {{ __('Games') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -45,7 +45,7 @@
                         <x-nav-link :href="route('account-profile')" :active="request()->routeIs('account-profile')">
                         {{ __('Account Profile') }}
                         </x-nav-link>
-                        
+
                         <!-- Authentication -->
                         @guest
                             <x-dropdown-link :href="route('login')">
