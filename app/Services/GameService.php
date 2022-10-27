@@ -45,7 +45,6 @@ class GameService {
              if ($titleName === null) {
                 echo 'error';
              }
-             return view('game-info', ['game'=>$this->gameService->searchGamesByTitle()]);
-            }
-        return view('games', ['games'->$this->gameService->getGames()]);
+        }
+
     }
