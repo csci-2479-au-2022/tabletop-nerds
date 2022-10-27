@@ -4,10 +4,9 @@
             {{ __('Game Information') }}
         </h2>
     </x-slot>
-
-<body>
+    <x-main-body-content>
         <h2>{{$game->title}}: {{$game->id}}</h2>
         <p>Rating: {{$game->rating}}</p>
         <p>Age: {{$game->age}}</p>
-</body>
+    </x-main-body-content>
 </x-app-layout>
