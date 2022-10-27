@@ -24,8 +24,8 @@ class GameService {
 
         return
             [
-                new Game (1, 'Monopoly', 5, 12),
-                new Game (2, 'Risk', 5, 12),
+                new Game (1, 'Monopoly', 1, 12),
+                new Game (2, 'Risk', 2, 10),
                 new Game (3, 'DND', 5, 12),
             ];
     }
@@ -45,6 +45,5 @@ class GameService {
                 echo 'error';
              }
         }
-
     }
 }
