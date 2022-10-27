@@ -28,7 +28,6 @@ class GameService {
                 new Game (2, 'Risk', 5, 12),
                 new Game (3, 'DND', 5, 12),
             ];
-        }
     }
 
     function searchGamesByTitle (string $searchTitle)
@@ -48,3 +47,4 @@ class GameService {
         }
 
     }
+}
