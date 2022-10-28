@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GameController;
 
-use App\Http\Controllers\WishlistController;
+use App\Http\Controllers\AccountController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,4 +36,4 @@ Route::get('/game/{id}', [GameController::class, 'getGamesById' ]) ->name('game-
 require __DIR__.'/auth.php';
 
 
-Route::get('/wishlist', [WishlistController::class, 'wishlist']) ->name ('wish-list');
+Route::get('/wishlist', [AccountController::class, 'show']) ->name ('wish-list');

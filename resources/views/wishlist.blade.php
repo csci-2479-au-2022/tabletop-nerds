@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>This is your wishlist - hopefully you get what you wish for!</h1>
-    @foreach($games as $game)
+    @foreach($wishlist as $game)
     <p>{{$game['title']}}</p>
     @endforeach
 </body>
