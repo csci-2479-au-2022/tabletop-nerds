@@ -2,6 +2,7 @@
 
 namespace App\Services;
 use App\Models\Game;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class GameService {
 
@@ -14,14 +15,12 @@ class GameService {
                 return $game;
             }
         }
+        throw new NotFoundHttpException();
     }
 
+    // todo: add optional params for orderBy, direction, and limit
     function getGames()
     {
-        $orderBy;
-        $direction;
-        $limit;
-
         return
             [
                 new Game (1, 'Monopoly', 1, 12),
