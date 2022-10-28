@@ -48,7 +48,7 @@ class gameControllerTest extends TestCase{
         // ->times(1)
         // ->andReturn($game);
 
-        $response = $this->get('/game/{id}');
+        $response = $this->get('/game/1');
         // $response->assertViewHas('/game/{id}', $game);
         $response->assertStatus(200);
 
