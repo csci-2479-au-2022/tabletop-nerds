@@ -16,4 +16,9 @@ class Wishlist extends Model
     {
         return "Welcome to your wishlist! Hopefully you get $this->title";
     }
+
+    public function game_user_table()
+    {
+        return $this->belongsToMany(game_user_table::class);
+    }
 }

@@ -2,7 +2,8 @@
 
 namespace App\Models;
 
-class Game
+use Illuminate\Database\Eloquent\Model;
+class Game extends Model
 {
     public function __construct(
         public int $id,
@@ -16,6 +17,14 @@ class Game
     public function toString(): string
     {
         return "$this->title, Rating: $this->rating, Recommended age: $this->age";
+    }
+
+    public function publisher() {
+        return $this->belongsTo(Publisher::class);
+    }
+
+    public function category() {
+        return $this->belongsToMany(Category::class);
     }
 
 }
