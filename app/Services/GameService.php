@@ -23,9 +23,9 @@ class GameService {
     {
         return
             [
-                new Game (1, 'Monopoly', 1, 12),
-                new Game (2, 'Risk', 2, 10),
-                new Game (3, 'DND', 5, 12),
+                Game::make(['id' => 1, 'title' => 'Monopoly', 'rating' => 1]),
+                Game::make(['id' => 2, 'title' => 'Risk', 'rating' => 2]),
+                Game::make([ 'id' => 3, 'title' => 'DND', 'rating' => 5]),
             ];
     }
 
