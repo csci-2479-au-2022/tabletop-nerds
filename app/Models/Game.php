@@ -5,14 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 class Game extends Model
 {
-    public function __construct(
-        public int $id,
-        public string $title,
-        public int $rating,
-        public string $age,
-    ){
-
-    }
+    protected $fillable = ['id', 'title', 'rating', 'age', ];
 
     public function toString(): string
     {
@@ -25,6 +18,10 @@ class Game extends Model
 
     public function category() {
         return $this->belongsToMany(Category::class);
+    }
+
+    public function users() {
+        return $this->belongsToMany(User::class)->using(Wishlist::class);
     }
 
 }

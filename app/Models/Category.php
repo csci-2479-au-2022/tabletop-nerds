@@ -9,10 +9,7 @@ class Category extends Model
     /**
      * Get the Category
      */
-    public function __construct()
-    {
-
-    }
+    protected $fillable = ['id', 'category', ];
 
     public function game() {
         return $this->belongsToMany(Game::class);
