@@ -3,9 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class Wishlist extends Model
+class Wishlist extends Pivot
 {
     protected $fillable = [
         'id',
@@ -15,5 +15,10 @@ class Wishlist extends Model
     public function toString(): string
     {
         return "Welcome to your wishlist! Hopefully you get $this->title";
+    }
+
+    public function pivot()
+    {
+        return $this->belongsToMany(game_user_table::class);
     }
 }
