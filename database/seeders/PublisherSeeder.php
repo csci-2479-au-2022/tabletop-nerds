@@ -15,14 +15,12 @@ class PublisherSeeder extends Seeder
      */
     public function run()
     {
-        Publisher::table('publishers')->insert([
-            ['name' => 'Fantasy Flight Games', 'publisher_code' => 'FFG'],
-            ['name' => 'Z-Man Games', 'publisher_code' => 'ZMG'],
-            ['name' => 'KOSMOS', 'publisher_code' => 'KOS'],
-            ['name' => 'Days of Wonder', 'publisher_code' => 'DOW'],
-            ['name' => 'Cool Mini or Not', 'publisher_code' => 'CMN'],
-            ['name' => 'Ravensburger', 'publisher_code' => 'RVN'],
-            ['name' => 'Rio Grande Games', 'publisher_code' => 'RGG'],
-        ]);
+        Publisher::create([ ['name' => 'Fantasy Flight Games', 'publisher_code' => 'FFG'] ]);
+        Publisher::create([ ['name' => 'Z-Man Games', 'publisher_code' => 'ZMG'] ]);
+        Publisher::create([ ['name' => 'KOSMOS', 'publisher_code' => 'KOS'] ]);
+        Publisher::create([ ['name' => 'Days of Wonder', 'publisher_code' => 'DOW'] ]);
+        Publisher::create([ ['name' => 'Cool Mini or Not', 'publisher_code' => 'CMN'] ]);
+        Publisher::create([ ['name' => 'Ravensburger', 'publisher_code' => 'RVN'] ]);
+        Publisher::create([ ['name' => 'Rio Grande Games', 'publisher_code' => 'RGG'] ]);
     }
 }
