@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GameController;
 
-use App\Http\Controllers\WishlistController;
+use App\Http\Controllers\AccountController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,11 +25,9 @@ Route::get('/profile', function () {
 })->middleware(['auth'])->name('account-profile');
 
 Route::get('/games', [GameController::class, 'gameList']) ->name('game-list');
-
-
-Route::get('/game/{id?}', [GameController::class, 'getGameById' ]) ->name('game-info');
+Route::get('/game/{id}', [GameController::class, 'getGameById' ]) ->name('game-info');
 
 require __DIR__.'/auth.php';
 
 
-Route::get('/wishlist', [WishlistController::class, 'wishlist']) ->name ('wish-list');
+Route::get('/wishlist', [AccountController::class, 'show']) ->name ('wish-list');

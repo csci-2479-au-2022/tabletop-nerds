@@ -41,4 +41,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function games() {
+        return $this->belongsToMany(Game::class)->using(Wishlist::class);
+    }
 }
