@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Publisher;
 
 class PublisherSeeder extends Seeder
 {
@@ -14,7 +15,7 @@ class PublisherSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('publishers')->insert([
+        Publisher::table('publishers')->insert([
             ['name' => 'Fantasy Flight Games', 'publisher_code' => 'FFG'],
             ['name' => 'Z-Man Games', 'publisher_code' => 'ZMG'],
             ['name' => 'KOSMOS', 'publisher_code' => 'KOS'],
