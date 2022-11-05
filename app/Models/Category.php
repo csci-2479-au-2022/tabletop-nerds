@@ -14,4 +14,12 @@ class Category extends Model
     public function game() {
         return $this->belongsToMany(Game::class);
     }
+
+    public function run()
+    {
+        //13 categories
+        Category::factory()
+            ->count(13)
+            ->create();
+    }
 }
