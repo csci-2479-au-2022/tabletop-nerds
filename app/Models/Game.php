@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 class Game extends Model
 {
-    protected $fillable = ['id', 'title', 'complexity_rating', 'release_year', 'publisher', 'playing_time_minutes', 'min_number_players', 'max_number_playeres'];
+    protected $fillable = ['id', 'title', 'complexity_rating', 'release_year', 'publisher', 'category', 'playing_time_minutes', 'min_number_players', 'max_number_playeres'];
 
     public function toString(): string
     {
-        return "$this->title, Complexity Rating: $this->complexity_rating, Publisher: $this->publisher, Average game time: $this->playing_time_minutes, Players: $this->min_number_players - $this->max_number_players";
+        return "$this->title, Complexity Rating: $this->complexity_rating / 5.00, Publisher: $this->publisher, Category: $this->category, Average game time: $this->playing_time_minutes minutes, Players: $this->min_number_players - $this->max_number_players";
     }
 
     public function publisher() {
