@@ -39,6 +39,7 @@ env:
                                                # file, e.g. .aws/task-definition.json
   CONTAINER_NAME: laravel           # set this to the name of the container in the
                                                # containerDefinitions section of your task definition
+  WWWGROUP: 1234
 
 permissions:
   contents: read
