@@ -2,7 +2,6 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -17,7 +16,7 @@ return new class extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->char('category_code', 3);
+            $table->char('category_code', 4);
             $table->timestamps();
         });
     }
@@ -31,6 +30,4 @@ return new class extends Migration
     {
         Schema::dropIfExists('categories');
     }
-
-
 };
