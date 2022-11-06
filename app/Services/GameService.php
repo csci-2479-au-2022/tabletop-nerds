@@ -8,7 +8,7 @@ class GameService {
 
     function getGamesById (int $id)
     {
-        $games = $this->getGames();
+        $games = Game::find($id);
 
         foreach ($games as $game) {
             if ($game->id === $id) {
@@ -21,12 +21,11 @@ class GameService {
     // todo: add optional params for orderBy, direction, and limit
     function getGames()
     {
-        return
-            [
-                Game::make(['id' => 1, 'title' => 'Monopoly', 'rating' => 1]),
-                Game::make(['id' => 2, 'title' => 'Risk', 'rating' => 2]),
-                Game::make([ 'id' => 3, 'title' => 'DND', 'rating' => 5]),
-            ];
+        $allGames = Game::all('id', 'title', 'rating', 'age', );
+        $sortedAllGames = $allGames->sortBy('title');
+
+        return $sortedAllGames;
+
     }
 
     function searchGamesByTitle (string $searchTitle)
@@ -44,5 +43,7 @@ class GameService {
                 echo 'error';
              }
         }
+
+
     }
 }
