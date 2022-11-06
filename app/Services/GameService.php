@@ -8,20 +8,15 @@ class GameService {
 
     function getGamesById (int $id)
     {
-        $games = Game::find($id);
+        $game = Game::findOrFail($id);
+        return $game;
 
-        foreach ($games as $game) {
-            if ($game->id === $id) {
-                return $game;
-            }
-        }
-        throw new NotFoundHttpException();
     }
 
     // todo: add optional params for orderBy, direction, and limit
     function getGames()
     {
-        $allGames = Game::all('id', 'title', 'rating', 'age', );
+        $allGames = Game::all();
         $sortedAllGames = $allGames->sortBy('title');
 
         return $sortedAllGames;
