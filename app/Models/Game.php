@@ -12,15 +12,18 @@ class Game extends Model
         return "$this->title, Rating: $this->rating, Recommended age: $this->age";
     }
 
-    public function publisher() {
+    public function publisher()
+    {
         return $this->belongsTo(Publisher::class);
     }
 
-    public function category() {
+    public function categories()
+    {
         return $this->belongsToMany(Category::class);
     }
 
-    public function users() {
+    public function users()
+    {
         return $this->belongsToMany(User::class)->using(Wishlist::class);
     }
 
