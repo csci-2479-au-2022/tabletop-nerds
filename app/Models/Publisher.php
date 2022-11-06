@@ -10,15 +10,9 @@ class Publisher extends Model
     /**
      * Get the Publisher
      */
-    protected $fillable = ['id', 'publisher', ];
-
-public function publisher() {
-    return $this->has(Publisher::class);
-}
+    protected $fillable = ['name', 'publisher_code'];
 
     public function games() {
         return $this->hasMany(Game::class);
     }
-
-    use HasFactory;
 }

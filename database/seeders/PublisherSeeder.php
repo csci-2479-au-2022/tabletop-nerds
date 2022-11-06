@@ -15,13 +15,12 @@ class PublisherSeeder extends Seeder
      */
     public function run()
     {
-        $factory = Publisher::factory();
-        $factory->createMany([ ['name' => 'Fantasy Flight Games', 'publisher_code' => 'FFG'] ]);
-        $factory->createMany([ ['name' => 'Z-Man Games', 'publisher_code' => 'ZMG'] ]);
-        $factory->createMany([ ['name' => 'KOSMOS', 'publisher_code' => 'KOS'] ]);
-        $factory->createMany([ ['name' => 'Days of Wonder', 'publisher_code' => 'DOW'] ]);
-        $factory->createMany([ ['name' => 'Cool Mini or Not', 'publisher_code' => 'CMN'] ]);
-        $factory->createMany([ ['name' => 'Ravensburger', 'publisher_code' => 'RVN'] ]);
-        $factory->createMany([ ['name' => 'Rio Grande Games', 'publisher_code' => 'RGG'] ]);
+        Publisher::create([ 'name' => 'Fantasy Flight Games', 'publisher_code' => 'FFG' ]);
+        Publisher::create([ 'name' => 'Z-Man Games', 'publisher_code' => 'ZMG' ]);
+        Publisher::create([ 'name' => 'KOSMOS', 'publisher_code' => 'KOS' ]);
+        Publisher::create([ 'name' => 'Days of Wonder', 'publisher_code' => 'DOW' ]);
+        Publisher::create([ 'name' => 'Cool Mini or Not', 'publisher_code' => 'CMN' ]);
+        Publisher::create([ 'name' => 'Ravensburger', 'publisher_code' => 'RVN' ]);
+        Publisher::create([ 'name' => 'Rio Grande Games', 'publisher_code' => 'RGG' ]);
     }
 }
