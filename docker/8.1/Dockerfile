@@ -66,3 +66,4 @@ ENTRYPOINT ["start-container"]
 # for release
 FROM base AS release
 COPY . .
+RUN chown -R sail:sail .
