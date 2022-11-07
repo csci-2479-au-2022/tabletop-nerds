@@ -67,3 +67,4 @@ ENTRYPOINT ["start-container"]
 FROM base AS release
 COPY . .
 RUN chown -R sail:sail .
+RUN npm run build
