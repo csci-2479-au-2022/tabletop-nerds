@@ -9,18 +9,26 @@ class Game extends Model
 
     public function toString(): string
     {
-        return "$this->title, Complexity Rating: $this->complexity_rating / 5.00, Publisher: $this->publisher, Category: $this->category, Average game time: $this->playing_time_minutes minutes, Players: $this->min_number_players - $this->max_number_players";
+        return "$this->title,
+        Complexity Rating: $this->complexity_rating / 5.00,
+        Publisher: $this->publisher,
+        Category: $this->category,
+        Average game time: $this->playing_time_minutes minutes,
+        Players: $this->min_number_players - $this->max_number_players";
     }
 
-    public function publisher() {
+    public function publisher()
+    {
         return $this->belongsTo(Publisher::class);
     }
 
-    public function category() {
+    public function categories()
+    {
         return $this->belongsToMany(Category::class);
     }
 
-    public function users() {
+    public function users()
+    {
         return $this->belongsToMany(User::class)->using(Wishlist::class);
     }
 
