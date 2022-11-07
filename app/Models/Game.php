@@ -5,7 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 class Game extends Model
 {
-    protected $fillable = ['id', 'title', 'complexity_rating', 'release_year', 'publisher', 'category', 'playing_time_minutes', 'min_number_players', 'max_number_playeres'];
+    protected $fillable = [
+        'id',
+        'title',
+        'complexity_rating',
+        'release_year',
+        'publisher',
+        'playing_time_minutes',
+        'min_number_players',
+        'max_number_playeres'];
 
     public function toString(): string
     {

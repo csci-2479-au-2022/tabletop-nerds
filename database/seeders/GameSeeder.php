@@ -20,7 +20,7 @@ class GameSeeder extends Seeder
             'complexity_rating'=>3.58,
             'release_year'=>2005,
             'publisher_id'=>'FFG',
-            'category_id'=>'FANT, SCIF',
+            // 'category_id'=>'FANT, SCIF',
             'playing_time_minutes'=>240,
             'min_number_players'=>1,
             'max_number_players'=>8],);
@@ -28,44 +28,44 @@ class GameSeeder extends Seeder
             ['title'=>'Stone Age',
             'complexity_rating'=>2.47,
             'release_year'=>2008,
-            'publisher'=>'ZMG',
-            'category'=>'ECON',
+            'publisher_id'=>'ZMG',
+            // 'category'=>'ECON',
             'playing_time_minutes'=>90,
             'min_number_players'=>2,
-            'max_number+players'=>4],);
+            'max_number_players'=>4],);
         Game::create(
             ['title'=>'Legends of Andor',
             'complexity_rating'=>2.76,
             'release_year'=>2012,
-            'publisher'=>'KOS',
-            'category'=>'FANT, ADVN',
+            'publisher_id'=>'KOS',
+            // 'category'=>'FANT, ADVN',
             'playing_time_minutes'=>90,
             'min_number_players'=>2,
-            'max_number+players'=>4],);
+            'max_number_players'=>4],);
         Game::create(
             ['title'=>'Memoir `44',
             'complexity_rating'=>2.27,
             'release_year'=>2004,
-            'publisher'=>'DOW',
-            'category'=>'WARG',
+            'publisher_id'=>'DOW',
+            // 'category'=>'WARG',
             'playing_time_minutes'=>60,
             'min_number_players'=>2,
-            'max_number+players'=>8],);
+            'max_number_players'=>8],);
         Game::create(
             ['title'=>'Blood Rage',
             'complexity_rating'=>2.88,
             'release_year'=>2015,
-            'publisher'=>'CMN',
-            'category'=>'FIGH, MINI',
+            'publisher_id'=>'CMN',
+            // 'category'=>'FIGH, MINI',
             'playing_time_minutes'=>90,
             'min_number_players'=>2,
-            'max_number+players'=>4],);
+            'max_number_players'=>4],);
         Game::create(
             ['title'=>'Castles of Burgundy',
             'complexity_rating'=>2.99,
             'release_year'=>2005,
-            'publisher'=>'RVN',
-            'category'=>'TERR, CIVI',
+            'publisher_id'=>'RVN',
+            // 'category'=>'TERR, CIVI',
             'playing_time_minutes'=>90,
             'min_number_players'=>2,
             'max_number+players'=>4],);
@@ -73,10 +73,10 @@ class GameSeeder extends Seeder
             ['title'=>'Power Grid',
             'complexity_rating'=>3.58,
             'release_year'=>2004,
-            'publisher'=>'RGG',
-            'category'=>'ECON, NEGO',
+            'publisher_id'=>'RGG',
+            // 'category'=>'ECON, NEGO',
             'playing_time_minutes'=>120,
             'min_number_players'=>2,
-            'max_number+players'=>6],);
+            'max_number_players'=>6],);
     }
 }
