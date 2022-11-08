@@ -16,10 +16,9 @@ class GameService {
     // todo: add optional params for orderBy, direction, and limit
     function getGames()
     {
-        $allGames = Game::all();
-        $sortedAllGames = $allGames->sortBy('title');
+        $games = Game::all()->orderBy('title');
 
-        return $sortedAllGames;
+        return $games;
 
     }
 
