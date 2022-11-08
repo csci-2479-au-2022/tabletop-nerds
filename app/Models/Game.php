@@ -10,7 +10,6 @@ class Game extends Model
         'title',
         'complexity_rating',
         'release_year',
-        'publisher',
         'playing_time_minutes',
         'min_number_players',
         'max_number_playeres'];
@@ -19,8 +18,6 @@ class Game extends Model
     {
         return "$this->title,
         Complexity Rating: $this->complexity_rating / 5.00,
-        Publisher: $this->publisher,
-        Category: $this->category,
         Average game time: $this->playing_time_minutes minutes,
         Players: $this->min_number_players - $this->max_number_players";
     }
