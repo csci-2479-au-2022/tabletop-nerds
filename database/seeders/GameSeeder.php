@@ -5,6 +5,8 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Game;
+use App\Models\Publisher;
+use App\Models\Category;
 
 class GameSeeder extends Seeder
 {
@@ -15,68 +17,74 @@ class GameSeeder extends Seeder
      */
     public function run()
     {
-        Game::create(
-            ['title'=>'Arkham Horror',
+        $fantasyFlight = Publisher::where('publisher_code', 'FFG')->first();
+        $fantasyFlight->games()->create([
+            'title'=>'Arkham Horror',
             'complexity_rating'=>3.58,
             'release_year'=>2005,
-            'publisher_code'=>'FFG',
-            // 'category_id'=>'FANT, SCIF',
             'playing_time_minutes'=>240,
             'min_number_players'=>1,
-            'max_number_players'=>8],);
-        Game::create(
-            ['title'=>'Stone Age',
+            'max_number_players'=>8
+        ]);
+
+        $zManGames = Publisher::where('publisher_code', 'ZMG')->first();
+        $zManGames->games()->create([
+            'title'=>'Stone Age',
             'complexity_rating'=>2.47,
             'release_year'=>2008,
-            'publisher_code'=>'ZMG',
-            // 'category'=>'ECON',
             'playing_time_minutes'=>90,
             'min_number_players'=>2,
-            'max_number_players'=>4],);
-        Game::create(
-            ['title'=>'Legends of Andor',
+            'max_number_players'=>4
+        ]);
+
+        $kosmos = Publisher::where('publisher_code', 'KOS')->first();
+        $kosmos->games()->create([
+            'title'=>'Legends of Andor',
             'complexity_rating'=>2.76,
             'release_year'=>2012,
-            'publisher_code'=>'KOS',
-            // 'category'=>'FANT, ADVN',
             'playing_time_minutes'=>90,
             'min_number_players'=>2,
-            'max_number_players'=>4],);
-        Game::create(
-            ['title'=>'Memoir `44',
+            'max_number_players'=>4
+        ]);
+
+        $daysOfWonder = Publisher::where('publisher_code', 'DOW')->first();
+        $daysOfWonder->games()->create([
+            'title'=>'Memoir `44',
             'complexity_rating'=>2.27,
             'release_year'=>2004,
-            'publisher_code'=>'DOW',
-            // 'category'=>'WARG',
             'playing_time_minutes'=>60,
             'min_number_players'=>2,
-            'max_number_players'=>8],);
-        Game::create(
-            ['title'=>'Blood Rage',
+            'max_number_players'=>8
+        ]);
+
+        $coolMiniNot = Publisher::where('publisher_code', 'CMN')->first();
+        $coolMiniNot->games()->create([
+            'title'=>'Blood Rage',
             'complexity_rating'=>2.88,
             'release_year'=>2015,
-            'publisher_code'=>'CMN',
-            // 'category'=>'FIGH, MINI',
             'playing_time_minutes'=>90,
             'min_number_players'=>2,
-            'max_number_players'=>4],);
-        Game::create(
-            ['title'=>'Castles of Burgundy',
+            'max_number_players'=>4
+        ]);
+
+        $ravensberger = Publisher::where('publisher_code', 'RVN')->first();
+        $ravensberger->games()->create([
+            'title'=>'Castles of Burgundy',
             'complexity_rating'=>2.99,
             'release_year'=>2005,
-            'publisher_code'=>'RVN',
-            // 'category'=>'TERR, CIVI',
             'playing_time_minutes'=>90,
             'min_number_players'=>2,
-            'max_number+players'=>4],);
-        Game::create(
-            ['title'=>'Power Grid',
+            'max_number_players'=>4
+        ]);
+
+        $rioGrande = Publisher::where('publisher_code', 'RGG')->first();
+        $rioGrande->games()->create([
+            'title'=>'Power Grid',
             'complexity_rating'=>3.58,
             'release_year'=>2004,
-            'publisher_codes'=>'RGG',
-            // 'category'=>'ECON, NEGO',
             'playing_time_minutes'=>120,
             'min_number_players'=>2,
-            'max_number_players'=>6],);
+            'max_number_players'=>6
+        ]);
     }
 }
