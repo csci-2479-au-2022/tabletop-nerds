@@ -4,7 +4,9 @@ namespace App\Services;
 use App\Models\Game;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
+
 class GameService {
+
 
     function getGamesById (int $id)
     {
@@ -16,7 +18,7 @@ class GameService {
     // todo: add optional params for orderBy, direction, and limit
     function getGames()
     {
-        $games = Game::all()->orderBy('title');
+        $games = Game::all()->sortBy('title');
 
         return $games;
 
