@@ -8,7 +8,7 @@ class Game extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['id', 'title', 'rating', 'age', ];
+    protected $fillable = ['id', 'title', 'complexity_rating', 'release_year', 'publisher_id', 'playing_time_minutes', 'min_number_players', 'max_number_players', 'timestamp'];
 
     public function toString(): string
     {

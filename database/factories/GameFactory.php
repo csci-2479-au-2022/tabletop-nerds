@@ -19,8 +19,13 @@ class GameFactory extends Factory
         return [
             'id' => fake()->id(),
             'title' => fake()->title(),
-            'rating' => fake()->rating(),
-            'age' => fake()->age(),
+            'complexity_rating' => fake()->complexity_rating(),
+            'release_year' => fake()->release_year(),
+            'publisher_id' => fake()->publisher_id(),
+            'playing_time_minutes' => fake()->playing_time_minutes(),
+            'min_number_players' => fake()->min_number_players(),
+            'max_number_players' => fake()->max_number_players(),
+            'timestamp' => fake()->timestamp(),
         ];
     }
 }

@@ -3,9 +3,13 @@
 namespace App\Services;
 use App\Models\Game;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Mockery;
+use Mockery\MockInterface;
+
 
 
 class GameService {
+
 
 
     function getGamesById (int $id)
@@ -20,6 +24,8 @@ class GameService {
     {
         $games = Game::all()->sortBy('title');
 
+        echo $games;
+        // $games = Game::factory()->make();
         return $games;
 
     }
@@ -27,19 +33,22 @@ class GameService {
     function searchGamesByTitle (string $searchTitle)
     {
         $titleName = null;
-        $games = $this->getGames();
+        $titleName = Game::where('title','LIKE',$searchTitle)->get();
 
-        foreach ($games as $game) {
-            if (strtolower($game->title) === strtolower($searchTitle)) {
-                $titleName = $game;
-                break;
-             }
 
-             if ($titleName === null) {
-                echo 'error';
-             }
-        }
+        return $titleName;
 
 
     }
+
+    public function test_mock_gameservice()
+    {
+        $this->getGames(
+            GameService::class,
+            Mockery::mock(GameService::class, function (MockInterface $mock) {
+                $mock->shouldReceive('GameFactory')->once();
+            })
+        );
+    }
+
 }
