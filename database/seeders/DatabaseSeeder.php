@@ -14,10 +14,10 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
 
-        $this->call([ PublisherSeeder::class, ]);
-        
         $this->call([
+            PublisherSeeder::class,
             CategorySeeder::class,
+            GameSeeder::class,
         ]);
 
     }
