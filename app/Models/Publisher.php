@@ -11,7 +11,7 @@ class Publisher extends Model
     /**
      * Get the Publisher
      */
-    protected $fillable = ['id', 'publisher', ];
+    protected $fillable = ['name', 'publisher_code'];
 
     public function games() {
         return $this->hasMany(Game::class);
