@@ -17,7 +17,12 @@ class GameFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'title' => fake()->words(3, true),
+            'complexity_rating' => fake()->randomFloat(1, 1, 10),
+            'release_year' => fake()->year(),
+            'playing_time_minutes' => fake()->numberBetween(30, 240),
+            'min_number_players' => fake()->numberBetween(1, 3),
+            'max_number_players' => fake()->numberBetween(3, 7),
         ];
     }
 }
