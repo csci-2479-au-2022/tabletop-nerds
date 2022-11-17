@@ -20,4 +20,8 @@ class AccountController extends Controller
 
     }
 
+    // public function togglePetAdopted(int $petId)
+    // {
+    //     return response()->json($this->petService->togglePetAdopted($petId));
+    // }
 }

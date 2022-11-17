@@ -9,6 +9,7 @@
         @foreach($wishlist as $game)
         <p>{{$game['title']}}</p>
         @endforeach
+
     </body>
     </html>
 </x-app-layout>
