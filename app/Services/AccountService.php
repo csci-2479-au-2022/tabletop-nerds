@@ -1,26 +1,25 @@
 <?php
 
 namespace App\Services;
-
-use App\Http\Controllers\AccountController;
 use App\Models\Wishlist;
+use App\Models\User;
+Use Illuminate\Support\Facades\DB;
+Use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Collection;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class AccountService
 {
 
-    private function getWishlist():array
+    private function getWishlist(): Collection
     {
-        return
-        [
-            ['title'=>'Catan'],
-            ['title'=>'Risk'],
-            ['title'=>'Ticket to Ride']
-        ];
+        // WTF DO I PUT HERE????????????????
+        return Wishlist::all();
     }
 
-    public function getWishlistByUserId(int $id):array {
-
+    public function getWishlistByUserId(int $user_id): Collection
+    {
+        $this->$user_id = Auth::user()->user_id; // LOL what am i even doing here? trying to plug logged in user ID to the method..
         return $this->getWishlist();
     }
 
