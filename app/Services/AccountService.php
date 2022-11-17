@@ -17,9 +17,9 @@ class AccountService
         return Wishlist::all();
     }
 
-    public function getWishlistByUserId(int $user_id): Collection
+    public function getWishlistByUserId(int $id): Collection
     {
-        $this->$user_id = Auth::user()->user_id; // LOL what am i even doing here? trying to plug logged in user ID to the method..
+        $this->$id = auth()->user()->id; // Is this redundant since I'm doing the same thing in the AccountController??
         return $this->getWishlist();
     }
 

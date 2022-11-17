@@ -15,10 +15,8 @@ class AccountController extends Controller
     }
 
     public function show(?int $id=null){
+        $this->$id = auth()->user()->id;
         if (is_int($id))
-            return view('wishlist', ['wishlist'=>$this->AccountService->getWishlistByUserId()]);
-            // Log::debug('current user:', ['user' => Auth::user()]);
+            return view('wishlist', ['wishlist'=>$this->AccountService->getWishlistByUserId($id)]);
     }
-
-    // How do I tell it what the User ID is to pass into the method that then will link to the game_user_table???
 }
