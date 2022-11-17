@@ -20,8 +20,8 @@ class AccountController extends Controller
 
     }
 
-    public function toggleWishlist() {
-
+    public function toggleWishlist(int $gameId, $userId) {
+        return response()->json($this->accountService->toggleWishlist($gameId, $userId));
     }
 
 }

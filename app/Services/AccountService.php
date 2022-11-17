@@ -24,7 +24,10 @@ class AccountService
         return $this->getWishlist();
     }
 
-    public function toggleWishlist($gameId, $userId) {
+    public function toggleWishlist(int $gameId, $userId): Wishlist {
+        $usersWishlist = $this->getWishlistByUserId($id);
+
+
 
     }
 
