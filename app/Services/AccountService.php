@@ -24,4 +24,8 @@ class AccountService
         return $this->getWishlist();
     }
 
+    public function toggleWishlist($gameId, $userId) {
+
+    }
+
 }

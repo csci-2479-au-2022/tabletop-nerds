@@ -20,4 +20,8 @@ class AccountController extends Controller
 
     }
 
+    public function toggleWishlist() {
+
+    }
+
 }
