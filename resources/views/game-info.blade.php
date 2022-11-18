@@ -19,7 +19,7 @@
     <div x-show="!isOnWishlist">
         <p>This game is not on your wishlist</p>
     </div>
-    <x-primary-button @click="toggleOnWishlist">
+    <x-primary-button @click="toggleOnWishlist({{auth()->user()->id}})">
         <span x-show="!isOnWishlist">Add game to  wishlist!</span>
         <span x-show="isOnWishlist">Remove from wishlist</span>
     </x-primary-button>
