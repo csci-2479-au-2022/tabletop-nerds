@@ -5,6 +5,8 @@ namespace App\Services;
 use App\Http\Controllers\AccountController;
 use App\Models\Wishlist;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use App\Models\User;
+use Illuminate\Support\Facades\Log;
 
 class AccountService
 {
@@ -24,8 +26,22 @@ class AccountService
         return $this->getWishlist();
     }
 
-    public function toggleWishlist(int $gameId, $userId): Wishlist {
-        $usersWishlist = $this->getWishlistByUserId($id);
+    public function toggleWishlist(int $gameId, int $userId):Wishlist {
+        $user = User::find($userId);
+
+
+        $userToToggle = $this->getWishlistByUserId($id);
+        $userToToggle->isOnWishlist = !$userToToggle->isOnWishlist;
+
+        if ($userToToggle-->isOnWishlist) {
+            $userToToggle->user()->associate($user);
+        } else {
+            $userToToggle->disassociate();
+        }
+
+        $userToToggle->save();
+
+        return $userToToggle;
 
 
 

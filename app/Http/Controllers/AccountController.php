@@ -7,6 +7,7 @@ use App\Models\Wishlist;
 use App\Services\AccountService;
 use Symfony\Component\Translation\Exception\NotFoundResourceException;
 
+
 class AccountController extends Controller
 {
     public function __construct(private AccountService $accountService) {
@@ -20,7 +21,10 @@ class AccountController extends Controller
 
     }
 
-    public function toggleWishlist(int $gameId, $userId) {
+    public function toggleWishlist(Request $request, int $gameId) {
+        $userId = (int)$request->query('user');
+
+
         return response()->json($this->accountService->toggleWishlist($gameId, $userId));
     }
 
