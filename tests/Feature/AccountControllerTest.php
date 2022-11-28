@@ -13,6 +13,7 @@ class AccountControllerTest extends TestCase
 {
     private array $wishlist;
     private MockInterface $accountServiceSpy;
+
     protected function setUp(): void {
         parent::setUp();
         $this->accountServiceSpy = $this->spy(AccountService::class);
@@ -38,5 +39,22 @@ class AccountControllerTest extends TestCase
         $response->assertStatus(200);
         $response->assertViewHas('wishlist', $wishlist);
     }
+
+    public function test_toggle_wishlist() {
+
+        //arrange
+        $user = 1;
+        $game = 1;
+
+        $this->accountServiceSpy->shouldReceive('toggleWishlist')->once()->andReturn($user, $game);
+
+        //act
+        $response = $this->get('/game/{id}');
+
+        //assert
+        $response->assertStatus(200);
+        $response->assertViewHas($user, $game);
+    }
+
 
 }
