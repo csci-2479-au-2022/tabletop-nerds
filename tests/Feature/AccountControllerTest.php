@@ -3,14 +3,15 @@
 namespace Tests\Feature;
 
 use App\Services\AccountService;
-use Illuminate\Support\Collection;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
 use Mockery\MockInterface;
 use Tests\TestCase;
 
 
 class AccountControllerTest extends TestCase
 {
-    private Collection $wishlist;
+    private array $wishlist;
     private MockInterface $accountServiceSpy;
     protected function setUp(): void {
         parent::setUp();
@@ -26,7 +27,7 @@ class AccountControllerTest extends TestCase
             ['title'=>'Mr. Bacons Big Adventure Board Game'],
         ];
 
-        $this->accountServiceSpy->shouldReceive('getWishlistByUserId()')
+        $this->accountServiceSpy->shouldReceive('getWishlistByUserId')
         ->once()
         ->andReturn($wishlist);
 

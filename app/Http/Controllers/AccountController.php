@@ -13,6 +13,6 @@ class AccountController extends Controller
     public function show(){
         // $this->$id = auth()->user()->id;
         // if (is_int($id))
-        return view('wishlist', ['wishlist'=>$this->AccountService->getWishlistByUserId()]);
+        return view('wishlist', ['wishlist'=>$this->accountService->getWishlistByUserId()]);
     }
 }
