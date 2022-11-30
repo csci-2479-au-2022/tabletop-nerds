@@ -43,17 +43,18 @@ class AccountControllerTest extends TestCase
     public function test_toggle_wishlist() {
 
         //arrange
-        $user = 1;
-        $game = 1;
+        $userId = 1;
+        $gameId = 1;
+        $isOnWishlist = null;
 
-        $this->accountServiceSpy->shouldReceive('toggleWishlist')->once()->andReturn($user, $game);
+        $this->accountServiceSpy->shouldReceive('toggleWishlist')->once()->andReturn($gameId, $userId);
 
         //act
-        $response = $this->get('/game/{id}');
+        $response = $this->get('/game/1');
 
         //assert
         $response->assertStatus(200);
-        $response->assertViewHas($user, $game);
+        $response->assertViewHasAll(['game', 'isOnWishlist']);
     }
 
 
