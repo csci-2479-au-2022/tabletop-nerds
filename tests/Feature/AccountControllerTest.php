@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Models\Game;
 use App\Services\AccountService;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -43,18 +44,20 @@ class AccountControllerTest extends TestCase
     public function test_toggle_wishlist() {
 
         //arrange
-        $userId = 1;
-        $gameId = 1;
-        $isOnWishlist = null;
+        $game = Game::factory()->make(['title' => 'Scrabble']);
 
-        $this->accountServiceSpy->shouldReceive('toggleWishlist')->once()->andReturn($gameId, $userId);
+        $this->accountServiceSpy->shouldReceive('toggleWishlist')->once()->andReturn([
+            'game' => $game,
+            'isOnWishlist' => true,
+        ]);
 
         //act
-        $response = $this->get('/game/1');
+        $response = $this->getJson('/api/game/1');
 
         //assert
-        $response->assertStatus(200);
-        $response->assertViewHasAll(['game', 'isOnWishlist']);
+        $response
+            ->assertStatus(200)
+            ->assertJson(['game' => $game->toArray(), 'isOnWishlist' => true]);
     }
 
 
