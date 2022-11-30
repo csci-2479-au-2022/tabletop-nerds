@@ -91,7 +91,6 @@ jobs:
         image: ${{ steps.build-image.outputs.image }}
 
     - name: Deploy Amazon ECS task definition
-      id: deploy
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
       with:
         task-definition: ${{ steps.task-def.outputs.task-definition }}
@@ -99,10 +98,16 @@ jobs:
         cluster: ${{ env.ECS_CLUSTER }}
         wait-for-service-stability: true
 
+    - name: Install jq tool
+      run: |
+        sudo apt-get update
+        sudo apt-get install jq
+
     - name: Run migrations
       run:  |
+        TASK_ARN=$(aws ecs list-tasks --cluster ${{ env.ECS_CLUSTER }} | jq '.taskArns | .[0]')
         aws ecs execute-command --command "php artisan migrate" \
-          --task ${{ steps.deploy.outputs.task-definition-arn }} \
+          --task $TASK_ARN \
           --interactive \
           --cluster tabletop-nerds-cluster \
           --container laravel
