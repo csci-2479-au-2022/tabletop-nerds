@@ -105,7 +105,7 @@ jobs:
 
     - name: Run migrations
       run:  |
-        TASK_ARN=$(aws ecs list-tasks --cluster ${{ env.ECS_CLUSTER }} | jq '.taskArns | .[0]')
+        TASK_ARN=$(aws ecs list-tasks --cluster ${{ env.ECS_CLUSTER }} | jq -r '.taskArns | .[0]')
         aws ecs execute-command --command "php artisan migrate" \
           --task $TASK_ARN \
           --interactive \
