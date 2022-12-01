@@ -8,7 +8,7 @@
         <h1>This is your wishlist - hopefully you get what you wish for!</h1>
         @foreach($wishlist as $game)
         <p>{{$game['title']}}</p>
-        <x-game :game="$game" :shouldRemove="$shouldRemove" />
+        <x-game-info :game="$game" :shouldRemove="$shouldRemove" />
         @endforeach
     </body>
     </html>
