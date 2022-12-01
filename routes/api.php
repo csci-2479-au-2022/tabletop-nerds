@@ -19,4 +19,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/game/{id}', [AccountController::class, 'toggleWishlist']);
+Route::get('/toggle-wishlist/{id}', [AccountController::class, 'toggleWishlist']);
