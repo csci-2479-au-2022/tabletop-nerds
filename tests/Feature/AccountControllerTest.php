@@ -60,7 +60,7 @@ class AccountControllerTest extends TestCase
         ]);
 
         //act
-        $response = $this->getJson('/api/game/1');
+        $response = $this->getJson('/api/toggle-wishlist/1');
 
         //assert
         $response
