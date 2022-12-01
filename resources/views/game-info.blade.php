@@ -8,5 +8,6 @@
         <h2>{{$game->title}}: {{$game->id}}</h2>
         <p>Rating: {{$game->rating}}</p>
         <p>Age: {{$game->age}}</p>
+        <x-game-info :game-info="$game" />
     </x-main-body-content>
 </x-app-layout>
