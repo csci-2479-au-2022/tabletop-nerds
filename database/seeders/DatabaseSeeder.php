@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Database\Factories\GameFactory;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,13 +14,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-
         $this->call([
             PublisherSeeder::class,
             CategorySeeder::class,
             GameSeeder::class,
         ]);
-
     }
 
 }

@@ -16,8 +16,13 @@ class PublisherFactory extends Factory
      */
     public function definition()
     {
+        $letterA = fake()->randomLetter();
+        $letterB = fake()->randomLetter();
+        $letterC = fake()->randomLetter();
+
         return [
-            //
+            'name' => fake()->name(),
+            'publisher_code' => "{$letterA}{$letterB}{$letterC}",
         ];
     }
 }
