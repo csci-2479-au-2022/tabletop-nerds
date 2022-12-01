@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Models\Game;
 use App\Models\User;
 use App\Services\AccountService;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -47,5 +48,25 @@ class AccountControllerTest extends TestCase
         $response->assertStatus(200);
         $response->assertViewHas('wishlist', $wishlist);
     }
+
+    public function test_toggle_wishlist() {
+
+        //arrange
+        $game = Game::factory()->make(['title' => 'Scrabble']);
+
+        $this->accountServiceSpy->shouldReceive('toggleWishlist')->once()->andReturn([
+            'game' => $game,
+            'isOnWishlist' => true,
+        ]);
+
+        //act
+        $response = $this->getJson('/api/toggle-wishlist/1');
+
+        //assert
+        $response
+            ->assertStatus(200)
+            ->assertJson(['game' => $game->toArray(), 'isOnWishlist' => true]);
+    }
+
 
 }
