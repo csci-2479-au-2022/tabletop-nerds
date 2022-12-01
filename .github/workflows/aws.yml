@@ -53,7 +53,7 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v3
-      
+
     - name: Install Dependencies
       run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
 
@@ -77,8 +77,8 @@ jobs:
         # Build a docker container and
         # push it to ECR so that it can
         # be deployed to ECS.
-        docker compose build laravel.test
-        docker tag sail-8.1/app $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+        # docker compose build laravel.test
+        docker build . -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG --build-arg WWWGROUP=1234 -f docker/8.1/Dockerfile
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
 
@@ -97,3 +97,17 @@ jobs:
         service: ${{ env.ECS_SERVICE }}
         cluster: ${{ env.ECS_CLUSTER }}
         wait-for-service-stability: true
+
+    - name: Install jq tool
+      run: |
+        sudo apt-get update
+        sudo apt-get install jq
+
+    - name: Run migrations
+      run:  |
+        TASK_ARN=$(aws ecs list-tasks --cluster ${{ env.ECS_CLUSTER }} | jq -r '.taskArns | .[0]')
+        aws ecs execute-command --command "php artisan migrate" \
+          --task $TASK_ARN \
+          --interactive \
+          --cluster tabletop-nerds-cluster \
+          --container laravel
