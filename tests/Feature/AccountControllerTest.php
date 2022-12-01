@@ -12,8 +12,11 @@ use Tests\TestCase;
 
 class AccountControllerTest extends TestCase
 {
+    use RefreshDatabase;
+
     private array $wishlist;
     private MockInterface $accountServiceSpy;
+
     protected function setUp(): void {
         parent::setUp();
         $this->accountServiceSpy = $this->spy(AccountService::class);
