@@ -30,4 +30,4 @@ Route::get('/game/{id}', [GameController::class, 'getGameById' ]) ->name('game-i
 require __DIR__.'/auth.php';
 
 
-Route::get('/wishlist', [AccountController::class, 'show']) ->name ('wish-list');
+Route::get('/wishlist', [AccountController::class, 'show'])->middleware(['auth']) ->name ('wish-list');
