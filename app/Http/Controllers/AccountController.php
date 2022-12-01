@@ -12,9 +12,10 @@ class AccountController extends Controller
     }
 
     public function show(){
-        // $this->$id = auth()->user()->id;
-        // if (is_int($id))
-        return view('wishlist', ['wishlist'=>$this->accountService->getWishlistByUserId()]);
+        return view('wishlist',
+        ['wishlist'=>$this->accountService->getWishlistByUserId(),
+        'shouldRemove' => 'true',
+        ]);
     }
 
     public function toggleWishlist(Request $request, int $gameId) {
