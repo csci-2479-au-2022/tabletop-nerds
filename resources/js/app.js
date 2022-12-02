@@ -26,3 +26,5 @@ window.Alpine.data('wishlistController', () => ({
 }))
 
 Alpine.start();
+
+
