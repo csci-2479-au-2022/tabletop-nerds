@@ -39,7 +39,7 @@ class AccountService
 
         return [
             'game' => $game,
-            'isOnWishlist' => $isOnWishlist,
+            'is_on_wishlist' => $isOnWishlist,
         ];
 
     }
