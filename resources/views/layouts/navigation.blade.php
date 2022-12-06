@@ -10,7 +10,7 @@
                     </a>
                 </div>
                 <!--Search textbox -->
-                <form action="" method="GET" class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                <form action="{{ url('/search-results') }}" method="GET" class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <input type="text" name="text" class="search" placeholder="What do you want?">
                     <input type="submit" name="submit" class="submit" value="Search">
                 </form>

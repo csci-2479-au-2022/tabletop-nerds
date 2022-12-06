@@ -9,7 +9,7 @@ class SearchResultController extends Controller
 {
     public function displayResults() {
         return view('search-results', [
-            'title'=>$this->gameService->searchGamesByTitle()
+            'title'=>$this->GameService->searchGamesByTitle()
         ]);
     }
 }
