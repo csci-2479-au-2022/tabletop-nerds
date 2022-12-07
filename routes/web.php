@@ -33,4 +33,4 @@ require __DIR__.'/auth.php';
 
 Route::get('/wishlist', [AccountController::class, 'show'])->middleware(['auth']) ->name ('wish-list');
 
-Route::get('/search-results', [SearchResultController::class, 'displayResults']);
+Route::get('/search-results', [GameController::class, 'displayResults']);

@@ -19,4 +19,11 @@ class GameController extends Controller
     public function getGameById(int $id) {
         return view ('game-info', [ 'game'=>$this->gameService->getGamesById($id)]);
     }
+
+    public function displayResults(Request $request) {
+
+        return view('search-results', [
+            'title'=>$this->gameService->searchGamesByTitle($request)
+        ]);
+    }
 }
