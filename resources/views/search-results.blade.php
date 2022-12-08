@@ -6,6 +6,13 @@
     </x-slot>
     <body>
         <h1>Here are the search results!</h1>
+        @foreach($title as $titles)
+        <tr>
+            <td>
+                {{$titles->title}}
+            </td>
+        </tr>
+        @endforeach
     </body>
     </html>
 </x-app-layout>
