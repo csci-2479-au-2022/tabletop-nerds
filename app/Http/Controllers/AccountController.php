@@ -13,8 +13,8 @@ class AccountController extends Controller
 
     public function show(){
         return view('wishlist',
-        ['wishlist'=>$this->accountService->getWishlistByUserId(),
-        'shouldRemove' => 'true',
+            ['wishlist' => $this->accountService->getWishlistByUserId(),
+            'shouldRemove' => 'true',
         ]);
     }
 
