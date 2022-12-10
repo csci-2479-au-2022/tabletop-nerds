@@ -12,14 +12,7 @@ Use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Collection;
 
 
-class AccountService
-{
-    // Commenting this out for now, because I'm not sure it is needed.
-    //
-    // private function getWishlist(): Collection
-    // {
-    //     return Wishlist::all();
-    // }
+class AccountService {
 
     public function getWishlistByUserId(): Collection
     {

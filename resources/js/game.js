@@ -1,10 +1,11 @@
-export default (...args) => {
-    const [gameId, isOnWishlist] = args;
-
+export default function game() {
     return {
-        // state
-        id: gameId,
-        isOnWishlist: isOnWishlist,
+        id: null,
+        isOnWishlist: false,
+        setGame(id, isOnWishlist) {
+            this.id = id;
+            this.isOnWishlist = isOnWishlist;
+        },
 
         // click handler to make our fetch request and update state
         toggleWishlist(userId, shouldRemove = false) {

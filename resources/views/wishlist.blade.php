@@ -7,11 +7,10 @@
     <x-main-body-content>
         <table>
             <thead>
-                <th>Your Wishlist</th>
+                <th>I Wish, I Wish, I Was A...</th>
             </thead>
             <tbody>
             @foreach($wishlist as $game)
-                <p>{{$game['title']}}</p>
                 <tr>
                     <td>
                         <x-wishlist :game="$game" :shouldRemove="$shouldRemove" />

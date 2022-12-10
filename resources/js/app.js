@@ -1,11 +1,10 @@
 import './bootstrap';
-import game from './game';
-
 import Alpine from 'alpinejs';
+import game from './game';
 
 window.Alpine = Alpine;
 
-Alpine.data('game', game);
+window.Alpine.data('game', game);
 
 Alpine.start();
 
