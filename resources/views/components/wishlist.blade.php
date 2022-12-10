@@ -13,7 +13,6 @@
     <h2>{{$game->title}}</h2>
     <table>
     <div x-show="isOnWishlist">
-        <p>Would you like to delete {{$game->title}} from your Wishlist?</p>
     </div>
     </table>
     {{-- the @click is the Alpine click handler --}}
