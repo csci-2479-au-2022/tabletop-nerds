@@ -26,9 +26,20 @@
 
 name: Deploy to Amazon ECS
 
-on: workflow_dispatch
-#   push:
-#     branches: [ "main" ]
+on:
+  workflow_dispatch
+  pull_request:
+    # changes to these files should not trigger this workflow
+    paths-ignore:
+      - 'tests/**'
+      - 'README.md'
+      - 'phpunit.xml'
+      - '.gitattributes'
+      - '.gitignore'
+      - '.env.example'
+      - 'docker-compose.yml'
+    types:
+      - closed
 
 env:
   AWS_REGION: us-east-2                   # set this to your preferred AWS region, e.g. us-west-1
@@ -46,6 +57,7 @@ permissions:
 
 jobs:
   deploy:
+    if: github.event.pull_request.merged == true
     name: Deploy
     runs-on: ubuntu-latest
     environment: develop
