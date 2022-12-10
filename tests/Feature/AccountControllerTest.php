@@ -25,11 +25,7 @@ class AccountControllerTest extends TestCase
 
     //arrange
     public function test_return_wishlist() {
-        $wishlist = collect([
-            ['title'=>'Clue'],
-            ['title'=>'Battleship'],
-            ['title'=>'Mr. Bacons Big Adventure Board Game'],
-        ]);
+        $wishlist = Game::factory(3)->make();
 
         /**
          * @var User
