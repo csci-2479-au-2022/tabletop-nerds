@@ -13,7 +13,7 @@
     <p>Rating: {{$game->rating}}</p>
     <p>Age: {{$game->age}}</p><br>
     <div x-show="isOnWishlist">
-        <p>This game is on your Wishlist already</p>
+        <p>You already have {{$game->title}} on your Wishlist PEASANT, wouldst thou like to remove?</p>
     </div>
 
     <div x-show="!isOnWishlist">
