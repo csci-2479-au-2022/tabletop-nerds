@@ -22,8 +22,8 @@ class GameController extends Controller
 
     public function displayResults(Request $request) {
 
-        return view('search-results', [
-            'title'=>$this->gameService->searchGamesByTitle($request)
+        return view('game-list', [
+            'games'=>$this->gameService->searchGamesByTitle($request)
         ]);
     }
 }
