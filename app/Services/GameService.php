@@ -24,7 +24,7 @@ class GameService {
 
     function searchGamesByTitle (string $searchTitle)
     {
-        return Game::where('title','LIKE',$searchTitle)->get();
+        return Game::where('title','LIKE',"%$searchTitle%")->get();
 
     }
 
