@@ -2,8 +2,11 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
+
 class Game extends Model
 {
     use HasFactory;
@@ -40,4 +43,17 @@ class Game extends Model
         return $this->belongsToMany(User::class)->using(Wishlist::class);
     }
 
+    public function isOnWishlist(): Attribute
+    {
+        // current (logged in) user id
+        $userId = Auth::user()?->id;
+
+        return Attribute::make(
+            get: fn () =>
+                // if book's users includes logged-in user
+                $this->users->contains(fn ($user) => $user->id === $userId)
+                    ? 'true'
+                    : 'false',
+        );
+    }
 }

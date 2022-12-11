@@ -5,11 +5,7 @@ use App\Models\Game;
 use Mockery;
 use Mockery\MockInterface;
 
-
-
 class GameService {
-
-
 
     function getGamesById (int $id)
     {
