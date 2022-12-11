@@ -22,4 +22,11 @@ class GameController extends Controller
             'shouldRemove' => false,
         ]);
     }
+
+    public function displayResults(Request $request) {
+
+        return view('game-list', [
+            'games'=>$this->gameService->searchGamesByTitle($request->query('text'))
+        ]);
+    }
 }

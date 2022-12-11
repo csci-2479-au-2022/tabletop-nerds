@@ -20,7 +20,8 @@ class GameService {
 
     function searchGamesByTitle (string $searchTitle)
     {
-        return Game::where('title','LIKE',$searchTitle)->get();
+        return Game::where('title','LIKE',"%$searchTitle%")->get();
+
     }
 
     public function test_mock_gameservice()

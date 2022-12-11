@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GameController;
 
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\SearchResultController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,3 +32,5 @@ require __DIR__.'/auth.php';
 
 
 Route::get('/wishlist', [AccountController::class, 'show'])->middleware(['auth']) ->name ('wish-list');
+
+Route::get('/search-results', [GameController::class, 'displayResults']);
