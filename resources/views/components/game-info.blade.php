@@ -19,12 +19,14 @@
 @auth
 
     <h2>Leave a Review!</h2>
-    <form>
+    <form method="POST" action="">
+        @csrf
         <label for="rating">Rating 1-10: </label>
         <input type="number" name="rating" min="1" max="10">
         <br>
         <label for="review">Review: </label>
         <input type="text" size="50" maxlength="100">
+        <input type="submit" value="Submit Review">
 
     </form>
 
