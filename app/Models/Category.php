@@ -9,7 +9,7 @@ class Category extends Model
     /**
      * Get the Category
      */
-    protected $fillable = ['category_code', 'name'];
+    protected $fillable = ['name', 'category_code'];
 
     public function games()
     {
