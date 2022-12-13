@@ -17,7 +17,7 @@ class Wishlist extends Pivot
         return "Welcome to your wishlist! Hopefully you get $this->title";
     }
 
-    public function pivot()
+    public function GameUser()
     {
         return $this->belongsToMany(game_user_table::class);
     }
