@@ -1,7 +1,7 @@
 @props(['game', 'shouldRemove'])
 
 {{-- all the x-whatever attributes are Alpine.js features --}}
-@auth
+
 <div
     {{-- this is the JS functionality --}}
     x-ref="game"
@@ -16,6 +16,21 @@
         <p>You already have {{$game->title}} on your Wishlist PEASANT, wouldst thou like to remove?</p>
     </div>
 
+@auth
+
+    <h2>Leave a Review!</h2>
+    <form method="POST" action="">
+        @csrf
+        <label for="rating">Rating 1-10: </label>
+        <input type="number" name="rating" min="1" max="10">
+        <br>
+        <label for="review">Review: </label>
+        <input type="text" size="50" maxlength="100">
+        <input type="submit" value="Submit Review">
+
+    </form>
+
+
     <div x-show="!isOnWishlist">
         <p>Wait... Didn't you want to add {{$game->title}} to your Wishlist?</p>
     </div>
@@ -25,4 +40,5 @@
             <span x-show="isOnWishlist">Remove from Wishlist</span>
         </x-primary-button>
 @endauth
+
 </div>
