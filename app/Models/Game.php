@@ -18,7 +18,8 @@ class Game extends Model
         'release_year',
         'playing_time_minutes',
         'min_number_players',
-        'max_number_playeres'];
+        'max_number_playeres',
+        'image_url'];
 
     public function toString(): string
     {

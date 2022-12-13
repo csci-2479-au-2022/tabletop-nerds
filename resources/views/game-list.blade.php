@@ -7,13 +7,14 @@
     <x-main-body-content>
         <table>
             <thead>
-                <th>Title</th>
+                <th>Games</th>
             </thead>
             <tbody>
             @foreach($games as $game)
             <tr>
                 <td>
                     <a href="{{route('game-info', $game->id)}}">{{$game->title}}</a>
+                    <img src="{{$game->image_url}}" width="100px" height="auto"><br><br>
                 </td>
             </tr>
             @endforeach

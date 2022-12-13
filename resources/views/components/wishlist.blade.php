@@ -11,6 +11,7 @@
     {{-- title is an attribute on the Book model, i.e. there is a title column in the table --}}
     <br>
     <h2>{{$game->title}}</h2>
+    <img src="{{$game->image_url}}">
     <table>
     <div x-show="isOnWishlist">
     </div>
