@@ -18,7 +18,8 @@ class Game extends Model
         'release_year',
         'playing_time_minutes',
         'min_number_players',
-        'max_number_playeres'];
+        'max_number_players',
+        'image_url'];
 
     public function toString(): string
     {
@@ -35,7 +36,7 @@ class Game extends Model
 
     public function categories()
     {
-        return $this->belongsToMany(Category::class);
+        return $this->belongsToMany(Category::class)->withPivot('game_id', 'category_id');
     }
 
     public function users()

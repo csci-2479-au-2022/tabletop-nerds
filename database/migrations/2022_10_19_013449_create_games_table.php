@@ -22,6 +22,7 @@ return new class extends Migration
             $table->integer('playing_time_minutes')->unsigned();
             $table->integer('min_number_players')->unsigned();
             $table->integer('max_number_players')->unsigned();
+            $table->text('image_url')->nullable();
             $table->timestamps();
         });
     }
