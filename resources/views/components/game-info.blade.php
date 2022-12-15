@@ -19,7 +19,7 @@
             <strong>Complexity Rating:</strong> {{$game->complexity_rating}} / 5.00 <br>
             <strong>Average play time:</strong> {{$game->playing_time_minutes}} <br>
             <strong>Number of players:</strong> {{$game->min_number_players}} to {{$game->max_number_players}}<br>
-            <strong>Category:</strong> {{$game->categories->name}}<br>
+            <strong>Category:</strong> {{$game->categories}}<br>
             <strong>Publisher:</strong> {{$game->publisher->name}}<br><br>
 @auth
             <div x-show="isOnWishlist">
