@@ -36,7 +36,7 @@ class Game extends Model
 
     public function categories()
     {
-        return $this->belongsToMany(Category::class);
+        return $this->belongsToMany(Category::class)->withPivot('game_id', 'category_id');
     }
 
     public function users()
