@@ -1,7 +1,6 @@
 @props(['game', 'shouldRemove'])
 
 {{-- all the x-whatever attributes are Alpine.js features --}}
-@auth
 <div
     {{-- this is the JS functionality --}}
     x-ref="game"
@@ -20,8 +19,9 @@
             <strong>Complexity Rating:</strong> {{$game->complexity_rating}} / 5.00 <br>
             <strong>Average play time:</strong> {{$game->playing_time_minutes}} <br>
             <strong>Number of players:</strong> {{$game->min_number_players}} to {{$game->max_number_players}}<br>
-            <strong>Category:</strong> {{$game->categories}}<br>
+            <strong>Category:</strong> {{$game->categories->name}}<br>
             <strong>Publisher:</strong> {{$game->publisher->name}}<br><br>
+@auth
             <div x-show="isOnWishlist">
                 <p><em>You already have {{$game->title}} on your Wishlist PEASANT, wouldst thou like to remove?</em></p>
             </div>
