@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class Game extends Model
 {
@@ -40,7 +41,7 @@ class Game extends Model
 
     public function users()
     {
-        return $this->belongsToMany(User::class)->using(Wishlist::class);
+        return $this->belongsToMany(User::class)->using(GameUser::class)->withPivot(['rating', 'review']);
     }
 
     public function isOnWishlist(): Attribute
@@ -55,5 +56,27 @@ class Game extends Model
                     ? 'true'
                     : 'false',
         );
+    }
+
+    public function averageRating(): Attribute
+    {
+        return Attribute::make(
+            get: function () {
+                Log::debug('[averageRating]', ['game' => $this]);
+                $count = $this->users->count();
+                $total = 0;
+
+                if ($count === 0) return number_format(0, 1);
+
+                foreach ($this->users as $user) {
+                    $total += $user->pivot->rating;
+                }
+
+                Log::debug('[averageRating]', ['total' => $total]);
+
+                return number_format($total / $count, 1);
+            }
+        );
+
     }
 }
