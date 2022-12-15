@@ -56,4 +56,13 @@ class Game extends Model
                     : 'false',
         );
     }
+
+    public function gameCategories(): Attribute
+    {
+        $getGameCategories = fn (Game $game) => $game->pivot->categories;
+
+        return Attribute:: make(
+            get: fn () => implode(', ', $this->categories->map($getGameCategories)->toArray())
+        );
+    }
 }

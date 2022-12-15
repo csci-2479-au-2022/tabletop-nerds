@@ -13,7 +13,7 @@
     <p>Complexity Rating: {{$game->complexity_rating}} / 5.00</p>
     <p>Average play time: {{$game->playing_time_minutes}}</p>
     <p>Number of players: {{$game->min_number_players}} to {{$game->max_number_players}}</p>
-    <p>Category: {{$game->categories}}</p>
+    <p>Category: {{$game->gameCategories}}</p>
     <p>Publisher: {{$game->publisher->name}}</p><br>
     <div x-show="isOnWishlist">
         <p>You already have {{$game->title}} on your Wishlist PEASANT, wouldst thou like to remove?</p>
